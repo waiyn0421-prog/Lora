@@ -1,0 +1,3 @@
+name: Lora
+type: extension
+description: Lora BIM productivity tools. Draw Area Boundary targets Revit 2023-2026; validate with the pyRevit host and engine installed for each Revit release.

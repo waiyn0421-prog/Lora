@@ -1,0 +1,95 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="View Range Editor"
+        Width="560"
+        Height="355"
+        MinWidth="560"
+        MinHeight="355"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResize"
+        ShowInTaskbar="False">
+  <Grid Margin="10">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="10"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <TextBlock x:Name="TitleText" Grid.Row="0" FontSize="14" FontWeight="SemiBold" Text="Showing View Range of"/>
+    <TextBlock x:Name="ViewNameText" Grid.Row="1" Margin="0,2,0,0" FontSize="13" Text="[ Plan View ]"/>
+
+    <Border Grid.Row="3" Background="#F4F4F4" BorderBrush="#E0E0E0" BorderThickness="0,0,0,1" Padding="6,5">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="26"/>
+          <ColumnDefinition Width="105"/>
+          <ColumnDefinition Width="115"/>
+          <ColumnDefinition Width="105"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="1" FontWeight="SemiBold" Text="Plane"/>
+        <TextBlock Grid.Column="2" FontWeight="SemiBold" Text="Elevation"/>
+        <TextBlock Grid.Column="3" FontWeight="SemiBold" Text="Offset From Level"/>
+        <TextBlock Grid.Column="4" FontWeight="SemiBold" Text="Associated Level"/>
+      </Grid>
+    </Border>
+
+    <Grid Grid.Row="4" Margin="0,0,0,8">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="36"/>
+        <RowDefinition Height="36"/>
+        <RowDefinition Height="36"/>
+        <RowDefinition Height="36"/>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="26"/>
+        <ColumnDefinition Width="105"/>
+        <ColumnDefinition Width="115"/>
+        <ColumnDefinition Width="105"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+
+      <Rectangle Grid.Row="0" Grid.Column="0" Width="4" Height="18" HorizontalAlignment="Left" VerticalAlignment="Center" Fill="#00A000" RadiusX="2" RadiusY="2"/>
+      <TextBlock Grid.Row="0" Grid.Column="1" x:Name="TopRowPlaneText" VerticalAlignment="Center" Text="Top Plane"/>
+      <TextBlock Grid.Row="0" Grid.Column="2" x:Name="TopRowElevationText" VerticalAlignment="Center" Text="N/A"/>
+      <TextBox Grid.Row="0" Grid.Column="3" x:Name="TopRowOffsetText" Margin="0,4,5,4" VerticalContentAlignment="Center" Text="N/A" IsEnabled="False"/>
+      <ComboBox Grid.Row="0" Grid.Column="4" x:Name="TopRowLevelCombo" Margin="0,4,0,4" VerticalContentAlignment="Center" SelectionChanged="on_top_level_changed"/>
+
+      <Rectangle Grid.Row="1" Grid.Column="0" Width="4" Height="18" HorizontalAlignment="Left" VerticalAlignment="Center" Fill="#D00000" RadiusX="2" RadiusY="2"/>
+      <TextBlock Grid.Row="1" Grid.Column="1" x:Name="CutRowPlaneText" VerticalAlignment="Center" Text="Cut Plane"/>
+      <TextBlock Grid.Row="1" Grid.Column="2" x:Name="CutRowElevationText" VerticalAlignment="Center" Text="N/A"/>
+      <TextBox Grid.Row="1" Grid.Column="3" x:Name="CutRowOffsetText" Margin="0,4,5,4" VerticalContentAlignment="Center" TextChanged="on_cut_offset_changed"/>
+      <ComboBox Grid.Row="1" Grid.Column="4" x:Name="CutRowLevelCombo" Margin="0,4,0,4" VerticalContentAlignment="Center" SelectionChanged="on_cut_level_changed"/>
+
+      <Rectangle Grid.Row="2" Grid.Column="0" Width="4" Height="18" HorizontalAlignment="Left" VerticalAlignment="Center" Fill="#2020E0" RadiusX="2" RadiusY="2"/>
+      <TextBlock Grid.Row="2" Grid.Column="1" x:Name="BottomRowPlaneText" VerticalAlignment="Center" Text="Bottom Plane"/>
+      <TextBlock Grid.Row="2" Grid.Column="2" x:Name="BottomRowElevationText" VerticalAlignment="Center" Text="N/A"/>
+      <TextBox Grid.Row="2" Grid.Column="3" x:Name="BottomRowOffsetText" Margin="0,4,5,4" VerticalContentAlignment="Center" TextChanged="on_bottom_offset_changed"/>
+      <ComboBox Grid.Row="2" Grid.Column="4" x:Name="BottomRowLevelCombo" Margin="0,4,0,4" VerticalContentAlignment="Center" SelectionChanged="on_bottom_level_changed"/>
+
+      <Rectangle Grid.Row="3" Grid.Column="0" Width="4" Height="18" HorizontalAlignment="Left" VerticalAlignment="Center" Fill="#F08000" RadiusX="2" RadiusY="2"/>
+      <TextBlock Grid.Row="3" Grid.Column="1" x:Name="DepthRowPlaneText" VerticalAlignment="Center" Text="View Depth"/>
+      <TextBlock Grid.Row="3" Grid.Column="2" x:Name="DepthRowElevationText" VerticalAlignment="Center" Text="N/A"/>
+      <TextBox Grid.Row="3" Grid.Column="3" x:Name="DepthRowOffsetText" Margin="0,4,5,4" VerticalContentAlignment="Center" TextChanged="on_depth_offset_changed"/>
+      <ComboBox Grid.Row="3" Grid.Column="4" x:Name="DepthRowLevelCombo" Margin="0,4,0,4" VerticalContentAlignment="Center" SelectionChanged="on_depth_level_changed"/>
+
+      <Separator Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5" Margin="0,5,0,0"/>
+    </Grid>
+
+    <Grid Grid.Row="5">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="8"/>
+        <ColumnDefinition Width="Auto"/>
+      </Grid.ColumnDefinitions>
+      <TextBlock x:Name="StatusText" Grid.Column="0" VerticalAlignment="Center" Foreground="#666666" Text="" TextWrapping="Wrap"/>
+      <Button Grid.Column="1" x:Name="ApplyButton" Width="105" Height="28" Content="Apply Changes" Click="on_apply"/>
+      <Button Grid.Column="3" x:Name="ResetButton" Width="115" Height="28" Content="Reset to Original" Click="on_reset"/>
+    </Grid>
+  </Grid>
+</Window>

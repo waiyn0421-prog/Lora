@@ -1,0 +1,3 @@
+title: InPlace to Family
+tooltip: Convert a selected in-place model family into a native loadable Revit family (.rfa), then load and place it in the current project.
+author: Lora

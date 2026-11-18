@@ -1,0 +1,3 @@
+title: View Range
+tooltip: Edit the selected plan view's Top, Cut, Bottom and View Depth settings.
+engine: {persistent: false, clean: true}
