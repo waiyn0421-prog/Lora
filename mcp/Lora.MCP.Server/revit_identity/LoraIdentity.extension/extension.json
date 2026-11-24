@@ -1,0 +1,8 @@
+{
+  "type": "extension",
+  "name": "LoraIdentity",
+  "description": "Revit-side document lifecycle identity provider for the Lora MCP client.",
+  "author": "Lora",
+  "website": "",
+  "dependencies": []
+}
