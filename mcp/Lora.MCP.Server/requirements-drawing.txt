@@ -1,0 +1,7 @@
+# Optional PDF and raster drawing processors. PyMuPDF is dual-licensed under
+# AGPL-3.0 or an Artifex commercial license; resolve distribution obligations
+# before installing it in a distributed application environment.
+PyMuPDF>=1.24,<2
+Pillow>=10,<13
+opencv-python-headless>=4.10,<5
+numpy>=1.26,<3

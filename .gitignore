@@ -1,0 +1,64 @@
+# Review proposal only. This file is intentionally not named .gitignore.
+# Promote it to the repository root only after review.
+
+# Python bytecode and test/runtime caches
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Local Python environments
+.venv/
+venv/
+.tox/
+
+# Generated Python build and test output
+build/
+dist/
+*.egg-info/
+test-results/
+junit.xml
+
+# Local secrets and machine-specific configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.pfx
+*.key
+
+# User-provided review data and local drawing inputs
+/distribution-review.txt
+/mcp/Lora.MCP.Server/drawing_inbox/*
+!/mcp/Lora.MCP.Server/drawing_inbox/.gitkeep
+
+# Generated release snapshots and packaged artifacts (preserve locally)
+/mcp/Lora-*-source-candidate/
+/mcp/Lora-*-source-candidate.zip
+/mcp/Lora-*-source-candidate.zip.sha256
+/mcp/read_only_release_candidate/
+
+# Local databases should be stored outside the source tree. These scoped rules
+# prevent accidental inclusion if a developer points a local DB inside the repo.
+/mcp/Lora.MCP.Server/lora_review/*.sqlite3
+/mcp/Lora.MCP.Server/lora_execution/*.sqlite3
+
+# Isolated source copies used only for branch preparation validation
+/mcp/_branch-review-validation*/
+/mcp/_github-branch-proposal-final/
+
+# Local GitHub branch preparation artifacts
+/.gitignore.proposed
+/GITHUB_DEVELOPMENT_BRANCH_PREPARATION.md
+/GITHUB_SECURITY_PRIVACY_REVIEW.md
+/GITHUB_REPRODUCIBILITY_REPORT.md
+/proposed-branch-inclusion-manifest.json
+/proposed-branch-exclusion-manifest.json
+
+# Common OS metadata
+.DS_Store
+Thumbs.db

@@ -1,0 +1,2 @@
+# Optional OCR Python wrapper. Requires a separately installed Tesseract executable.
+pytesseract>=0.3.13,<1
